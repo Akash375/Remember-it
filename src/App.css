@@ -19,7 +19,7 @@
 }
 
 .hi{
-  background: linear-gradient(#7895F9,#6c7ceb) ;
+  background: #010067 ;
   color:#ffffff;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
@@ -35,7 +35,7 @@
 width: 100%
 }
 .share{
-  background: linear-gradient(to right,#7895F9,#6c7ceb) ;
+  background: #010067 ;
   color: #fefefe;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
