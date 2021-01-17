@@ -137,16 +137,13 @@ class Dashboard extends Component{
     }
 
     render(){
-       /* if(this.state.isLoading===true){
-            return(
-                
-            );
-        }*/
-        
+       
         return(
             <Jumbotron className="dash-jumbo">
                 <Navbar dark>
-                    <NavbarBrand className="hash" href="/"><h4><strong>Remember-it</strong></h4></NavbarBrand>
+                    <NavbarBrand className="hash" href="/">
+                        <h4><strong><i class="fa fa-angle-double-left" aria-hidden="true"></i> Remember-it</strong></h4>
+                    </NavbarBrand>
                 </Navbar>
                 {this.state.isLoading&&
                     <div className="container">
