@@ -4,7 +4,7 @@ import{Jumbotron,Col, Row ,Navbar, NavbarBrand, Card, CardBody, CardHeader, Butt
 import { Control, LocalForm} from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 
-const baseUrl='https://my-json-server.typicode.com/Akash375/RememberitServer/';
+const baseUrl='http://localhost:3001/';
 
 class Dashboard extends Component{
     constructor(props){
@@ -144,6 +144,7 @@ class Dashboard extends Component{
                     <NavbarBrand className="hash" href="/">
                         <h4><strong><i class="fa fa-angle-double-left" aria-hidden="true"></i> Remember-it</strong></h4>
                     </NavbarBrand>
+                    <div className="ml-auto hash"><strong>Welcome</strong> Akash!</div>
                 </Navbar>
                 {this.state.isLoading&&
                     <div className="container">
@@ -154,85 +155,84 @@ class Dashboard extends Component{
                 }
                 {this.state.isLoading===false&&
                 <>
-                <div className="container hash">
-                    <div className="row">
-                        <LocalForm>
-                            <Row className="form-group">
-                                <Label htmlFor="title"><h5><strong>Task :</strong></h5></Label>
-                                <Col>
-                                    <Control.text model=".title" id="title" placeholder="Task Name" className="form-control"></Control.text>
-                                </Col>
-                                <Col>
-                                <Button >Done</Button>
-                                </Col>
-                            </Row>
-                        </LocalForm>
+                    <div className="container hash">
+                        <div className="row">
+                            <LocalForm>
+                                <Row className="form-group">
+                                    <Label htmlFor="title"><h5><strong>Task :</strong></h5></Label>
+                                    <Col>
+                                        <Control.text model=".title" id="title" placeholder="Task Name" className="form-control"></Control.text>
+                                    </Col>
+                                    <Col>
+                                    <Button>Done</Button>
+                                    </Col>
+                                </Row>
+                            </LocalForm>
+                        </div>
                     </div>
-                </div>
-                <div className="hash">
-                        *Click on the task to move it to next section!
+                    <div className="hash">
+                            *Click on the task to move it to next section!
                     </div>
-                <div className="container dash">
-                    <div className="row">
-                        <div className="col-md-4 mt-4">
-                            <Card>
-                                <CardHeader className="text-center" ><h4><strong>To Do</strong></h4></CardHeader>
-                                <CardBody className="card-header" >
-                                    {this.state.todo.map(todo=>
-                                        <Button key={todo.id} className="tasks d-flex content-align-left mt-2" onClick={()=>this.reMoveTodo(todo.id)}> 
-                                        { todo.name } 
-                                        <i class="fa fa-clock-o fa-lg ml-auto" aria-hidden="true"></i>
+                    <div className="container dash">
+                        <div className="row">
+                            <div className="col-md-4 mt-4">
+                                <Card>
+                                    <CardHeader className="text-center" ><h4><strong>To Do</strong></h4></CardHeader>
+                                    <CardBody className="card-header" >
+                                        {this.state.todo.map(todo=>
+                                            <Button key={todo.id} className="tasks d-flex content-align-left mt-2" onClick={()=>this.reMoveTodo(todo.id)}> 
+                                            { todo.name } 
+                                            <i class="fa fa-clock-o fa-lg ml-auto" aria-hidden="true"></i>
+                                            </Button>
+                                        )}
+                                    </CardBody>
+                                    <CardFooter className="add" onClick={this.addTodo}><center><i class="fa fa-plus" aria-hidden="true"></i> Add a Task...</center></CardFooter>
+                                </Card>
+                            </div>
+                            <div className="col-md-4 mt-4">
+                                <Card>
+                                    <CardHeader className="text-center"><h4><strong>In Progress</strong></h4></CardHeader>
+                                    <CardBody className="card-header">
+                                    {this.state.inProgress.map(inProgress=>
+                                        <Button key={inProgress.id} className="tasks d-flex content-align-left mt-2" onClick={()=>this.reMoveInProgress(inProgress.id)}>
+                                            {inProgress.name} 
+                                        <i className="fa fa-spinner ml-auto fa-md protask" aria-hidden="true"></i>
                                         </Button>
                                     )}
-                                </CardBody>
-                                <CardFooter className="add" onClick={this.addTodo}><center><i class="fa fa-plus" aria-hidden="true"></i> Add a Task...</center></CardFooter>
-                            </Card>
-                        </div>
-                        <div className="col-md-4 mt-4">
-                            <Card>
-                                <CardHeader className="text-center"><h4><strong>In Progress</strong></h4></CardHeader>
-                                <CardBody className="card-header">
-                                {this.state.inProgress.map(inProgress=>
-                                    <Button key={inProgress.id} className="tasks d-flex content-align-left mt-2" onClick={()=>this.reMoveInProgress(inProgress.id)}>
-                                        {inProgress.name} 
-                                    <i className="fa fa-spinner ml-auto fa-md protask" aria-hidden="true"></i>
-                                    </Button>
-                                )}
-                                </CardBody>
-                                <CardFooter className="add" onClick={this.addinprogress}><center><i class="fa fa-plus" aria-hidden="true"></i> Add a Task...</center></CardFooter>
-                            </Card>
-                        </div>
-                        <div className="col-md-4 mt-4">
-                            <Card>
-                                <CardHeader className="text-center"><h4><strong>Completed</strong></h4></CardHeader>
-                                <CardBody className="card-header">
-                                {this.state.completed.map(completed=>
-                                    <Button key={completed.id} className="tasks d-flex content-align-left mt-2">{completed.name} 
-                                     <i class="fa fa-check-circle-o tick fa-lg ml-auto tick" aria-hidden="true"></i>
-                                     </Button>
-                                )}
-                                </CardBody>
-                                <CardFooter className="add" onClick={this.addcompleted}><center><i class="fa fa-plus" aria-hidden="true"></i> Add a Task...</center></CardFooter>
-                            </Card>
-                        </div>
+                                    </CardBody>
+                                    <CardFooter className="add" onClick={this.addinprogress}><center><i class="fa fa-plus" aria-hidden="true"></i> Add a Task...</center></CardFooter>
+                                </Card>
+                            </div>
+                            <div className="col-md-4 mt-4">
+                                <Card>
+                                    <CardHeader className="text-center"><h4><strong>Completed</strong></h4></CardHeader>
+                                    <CardBody className="card-header">
+                                    {this.state.completed.map(completed=>
+                                        <Button key={completed.id} className="tasks d-flex content-align-left mt-2">{completed.name} 
+                                        <i class="fa fa-check-circle-o tick fa-lg ml-auto tick" aria-hidden="true"></i>
+                                        </Button>
+                                    )}
+                                    </CardBody>
+                                    <CardFooter className="add" onClick={this.addcompleted}><center><i class="fa fa-plus" aria-hidden="true"></i> Add a Task...</center></CardFooter>
+                                </Card>
+                            </div>
+                        </div> 
                     </div>
-                    
-                </div>
 
-                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader className="modalbck" toggle={this.toggleModal}>Add a Task...</ModalHeader>
-                    <ModalBody className="modalbck">
-                        <Form onSubmit={this.handleSubmit}>
-                            <FormGroup>
-                                <Label htmlFor="addtask">Task: </Label>
-                                <Input type="text" id="addtask" name="addtask" onChange={this.handleChange}/>
-                            </FormGroup>
-                            <center><Button type="submit" value="submit" className="share">Add</Button></center>
-                        </Form>
-                    </ModalBody>
-                </Modal>
+                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                        <ModalHeader className="modalbck" toggle={this.toggleModal}>Add a Task...</ModalHeader>
+                        <ModalBody className="modalbck">
+                            <Form onSubmit={this.handleSubmit}>
+                                <FormGroup>
+                                    <Label htmlFor="addtask">Task: </Label>
+                                    <Input type="text" id="addtask" name="addtask" onChange={this.handleChange}/>
+                                </FormGroup>
+                                <center><Button type="submit" value="submit" className="share">Add</Button></center>
+                            </Form>
+                        </ModalBody>
+                    </Modal>
                 </>}
-                </Jumbotron>
+            </Jumbotron>
         );
     }
 }

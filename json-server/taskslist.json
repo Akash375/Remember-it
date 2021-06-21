@@ -1,19 +1,11 @@
 {
   "todo": [
     {
-      "name": "Hire Accountant",
-      "id": 0
-    },
-    {
       "name": "Take a Loan",
       "id": 1
     }
   ],
   "inProgress": [
-    {
-      "id": 0,
-      "name": "Create Facebook Page"
-    },
     {
       "name": "Build Website",
       "id": 1
@@ -25,6 +17,10 @@
     {
       "id": 3,
       "name": "Sign Office Lease"
+    },
+    {
+      "name": "Hire Accountant",
+      "id": 4
     }
   ],
   "completed": [
@@ -35,6 +31,10 @@
     {
       "id": 1,
       "name": "Write Business Plans"
+    },
+    {
+      "name": "Create Facebook Page",
+      "id": 2
     }
   ]
 }

@@ -97,5 +97,4 @@ const items = [
     }
   }
   
-  
   export default HomeCarousel;
